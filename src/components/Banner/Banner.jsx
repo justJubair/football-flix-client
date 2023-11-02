@@ -45,7 +45,7 @@ const Banner = () => {
             {
                 sliders?.map((slider, idx)=> <SwiperSlide key={idx}><div className='relative w-full h-screen'>
                 <div className='absolute '>
-                    <h1 className='text-5xl'>{slider.tagline}</h1>
+                    <h1 className='text-5xl text-brow'>{slider.tagline}</h1>
                     <p>{slider.description}</p>
                 </div>
                 <img className='w-full object-cover h-full' src={slider.image_url} alt={slider.tagline}/>
