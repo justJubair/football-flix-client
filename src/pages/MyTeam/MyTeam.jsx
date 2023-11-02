@@ -1,7 +1,10 @@
+import Navbar from "../../components/Navbar/Navbar";
+
 const MyTeam = () => {
     return(
-        <div>
+        <>
+            <Navbar/>
              <p> HELLO I Am MyTeam </p>
-        </div>
+        </>
     )}
 export default MyTeam;

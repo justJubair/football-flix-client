@@ -2,9 +2,9 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const navLinks = <>
-    <li><NavLink>Home</NavLink></li>
-    <li><NavLink>My Team</NavLink></li>
-    <li><NavLink>Dashboard</NavLink></li>
+    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/myTeam">My Team</NavLink></li>
+    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
     </>
   return (
     <div className="navbar bg-base-100">
@@ -20,7 +20,7 @@ const Navbar = () => {
   </div> 
   <div className="drawer-side">
     <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
-    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+    <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content space-y-4">
       {/* Sidebar content here */}
      {navLinks}
     </ul>
@@ -29,7 +29,7 @@ const Navbar = () => {
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>
       <div className="navbar-center dra hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 space-x-4">
           {navLinks}
         </ul>
       </div>
