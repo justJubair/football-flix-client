@@ -11,19 +11,23 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { useQuery } from '@tanstack/react-query';
+import useAxios from '../../hooks/useAxios';
 
 
 const Banner = () => {
+    const axios = useAxios()
+    const getSliders = async()=>{
+        const res = await axios.get("/sliders")
+        return res.data;
+    }
+    
     const {data:sliders, isLoading} = useQuery({
         queryKey: ["sliders"],
-        queryFn: async()=>{
-            const res = await fetch("slider.json")
-            return res.json()
-        }
+        queryFn: getSliders
     })
 
     if(isLoading){
-        return <div className='flex h-screen justify-between items-center'><span className="loading loading-bars loading-lg"></span></div>
+        return <div className='flex h-screen justify-center items-center'><span className="loading loading-bars loading-lg"></span></div>
     }
 
     return(
