@@ -5,6 +5,7 @@ import MyTeam from "../pages/MyTeam/MyTeam";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Players from "../pages/Players/Players";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
                 path: "/myTeam",
                 element: <MyTeam/>
             },
+            {
+                path: "/players",
+                element: <Players/>
+            }
             
         ]
     },

@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { AiOutlineLogin } from "react-icons/ai";
 
-const Navbar = () => {
+const GeneralNavbar = () => {
   const navLinks = (
     <>
       <li>
@@ -28,12 +28,7 @@ const Navbar = () => {
     </>
   );
   return (
-    
-   
-   
-
-
-    <div className="absolute bg-transparent flex w-full items-center justify-between p-4 z-[100]">
+    <div className="bg-transparent flex w-full items-center justify-between p-4 z-[100]">
       
         <div className="lg:hidden">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -87,4 +82,4 @@ const Navbar = () => {
    
   );
 };
-export default Navbar;
+export default GeneralNavbar;

@@ -1,9 +1,10 @@
-import Navbar from "../../components/Navbar/Navbar";
+import GeneralNavbar from "../../components/Navbar/GeneralNav";
+
 
 const MyTeam = () => {
     return(
         <>
-            <Navbar/>
+            <GeneralNavbar/>
              <p> HELLO I Am MyTeam </p>
         </>
     )}
