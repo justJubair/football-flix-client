@@ -1,8 +1,32 @@
 import Lottie from "lottie-react";
 import logo from "../../assets/images/logo.png"
 import loginAnimation from "../../assets/animations/login.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import useAuth from "../../hooks/useAuth";
 const Login = () => {
+  const {login} = useAuth()
+  const navigate = useNavigate()
+  const handleLogin = e=>{
+    e.preventDefault()
+    const toastId = toast.loading("Logging in..")
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    // login existing user
+    login(email, password)
+    .then(result=>{
+      if(result.user){
+
+        toast.success("User created", {id: toastId})
+        navigate("/")
+      }
+    })
+    .catch(error=>{
+      toast.error(error.message, {id: toastId})
+    })
+    
+}
   return (
     <div className="bg-base-200">
     
@@ -18,7 +42,7 @@ const Login = () => {
           </div>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>

@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
 import logo from "../../assets/images/logo.png"
 import loginAnimation from "../../assets/animations/login.json";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { updateProfile } from "firebase/auth";
 import auth from "../../config/firebase.config";
@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const {signUp} = useAuth()
+  const navigate = useNavigate()
     const handleRegister = e=>{
         e.preventDefault()
         const toastId = toast.loading("Creating user..")
@@ -24,7 +25,10 @@ const Register = () => {
             updateProfile(auth.currentUser, {
               displayName: name, photoURL: photo
             })
-            .then()
+            .then(()=>{
+              navigate("/")
+              form.reset();
+            })
             .catch(error=>{
               toast.error(error.message , {id: toastId})
             })
