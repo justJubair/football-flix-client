@@ -28,9 +28,9 @@ const Navbar = () => {
    
 
 
-    <div className=" absolute navbar z-[100]">
-      <div className="navbar-start">
-        <div className="drawer lg:hidden">
+    <div className="absolute flex w-full justify-between p-4 z-[100]">
+      
+        <div className="lg:hidden">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             {/* Page content here */}
@@ -68,12 +68,12 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <img className="w-28" src={logo} alt="" />
-      </div>
-      <div className="navbar-center hidden lg:flex">
+
+      <img className="w-28" src={logo} alt="" />
+      <div className="hidden lg:block">
         <ul className="menu menu-horizontal px-1 space-x-4">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="">
         <a className="btn">Button</a>
       </div>
     </div>
