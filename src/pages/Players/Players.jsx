@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import GeneralNavbar from "../../components/Navbar/GeneralNav";
 import useAxios from "../../hooks/useAxios";
 import { TypeAnimation } from "react-type-animation";
+import PlayerCard from "./PlayerCard";
 
 const Players = () => {
   const axios = useAxios();
@@ -9,14 +10,18 @@ const Players = () => {
     const res = await axios.get("/players");
     return res.data;
   };
-  const { data } = useQuery({
+  const { data:players } = useQuery({
     queryKey: ["players"],
     queryFn: getPlayers,
   });
 
   return (
-    <div>
+    <>
+    <div className="bg-[url('https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg')] bg-black/75 h-screen bg-blend-overlay">
+        {/* overlay */}
+        
       <GeneralNavbar />
+      {/* page title */}
       <div className="text-center">
       <TypeAnimation
         sequence={[
@@ -36,7 +41,13 @@ const Players = () => {
         repeat={Infinity}
       />
       </div>
+      <div >
+        {
+            players?.map(player=> <PlayerCard key={player._id}  player={player}/>)
+        }
+      </div>
     </div>
+    </>
   );
 };
 export default Players;
