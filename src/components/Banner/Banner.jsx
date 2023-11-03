@@ -32,22 +32,21 @@ const Banner = () => {
             pagination={{
                 clickable: true,
             }}
-            navigation={true}
+            // navigation={true}
             // modules={[Autoplay, Pagination, Navigation]}
             className='mySwiper'
             >
-                {/* <SwiperSlide><div className='bg-white h-screen'>
-                    Slide one</div></SwiperSlide>
-                <SwiperSlide><div className='bg-white h-screen'>
-                    Slide two</div></SwiperSlide>
-                <SwiperSlide><div className='bg-white h-screen'>
-                    Slide three</div></SwiperSlide> */}
             {
                 sliders?.map((slider, idx)=> <SwiperSlide key={idx}><div className='relative w-full h-screen'>
-                <div className='absolute '>
-                    <h1 className='text-5xl text-brow'>{slider.tagline}</h1>
+                    {/* slider content */}
+                <div className='absolute z-30 md:left-28 md:top-1/3 md:w-1/3 space-y-4'>
+                    <h1 className='text-5xl font-extrabold leading-tight text-white'>{slider.tagline.slice(0,25)} <span className='text-[#a16740]'>{slider.tagline.slice(25,)}</span></h1>
                     <p>{slider.description}</p>
+                    <button className='btn bg-[#a16740] text-black duration-500 border-none hover:bg-[#c09375] hover:scale-110'>Get your player</button>
                 </div>
+                {/* overlay */}
+                <div className='absolute h-full w-full top-0 bg-black/60'></div>
+                {/* slider image */}
                 <img className='w-full object-cover h-full' src={slider.image_url} alt={slider.tagline}/>
                 </div></SwiperSlide>)
             }    

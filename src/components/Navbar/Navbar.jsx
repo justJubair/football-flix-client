@@ -16,9 +16,10 @@ const Navbar = () => {
     </>
   );
   return (
-    <Container>
-
-    <div className="navbar bg-base-100">
+    
+   
+      
+    <div className=" absolute navbar z-[100]">
       <div className="navbar-start">
         <div className="drawer lg:hidden">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -67,7 +68,8 @@ const Navbar = () => {
         <a className="btn">Button</a>
       </div>
     </div>
-    </Container>
+    
+   
   );
 };
 export default Navbar;
