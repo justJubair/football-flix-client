@@ -8,4 +8,4 @@ const useAxios = ()=>{
     return axiosSecure
 }
 
-export default useAxios
+export default useAxios  
