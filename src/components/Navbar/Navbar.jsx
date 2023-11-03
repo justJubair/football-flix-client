@@ -1,24 +1,33 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-import Container from "../Container/Container";
+
+
 const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/"  className={({ isActive}) =>
+     isActive && "bg-[#a16740] text-black" 
+  }>Home</NavLink>
       </li>
       <li>
-        <NavLink to="/myTeam">My Team</NavLink>
+        <NavLink to="/myTeam" className={({ isActive}) =>
+     isActive && "bg-[#a16740] text-black" 
+  }>My Team</NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to="/dashboard" className={({ isActive}) =>
+     isActive && "bg-[#a16740] text-black" 
+  }>Dashboard</NavLink>
       </li>
     </>
   );
   return (
     
    
-      
+   
+
+
     <div className=" absolute navbar z-[100]">
       <div className="navbar-start">
         <div className="drawer lg:hidden">
@@ -61,14 +70,15 @@ const Navbar = () => {
         </div>
         <img className="w-28" src={logo} alt="" />
       </div>
-      <div className="navbar-center dra hidden lg:flex">
+      <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-4">{navLinks}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Button</a>
       </div>
     </div>
-    
+
+   
    
   );
 };

@@ -20,7 +20,7 @@ const Banner = () => {
             return res.json()
         }
     })
-    console.log(sliders)
+
     return(
         <div>
             <Swiper spaceBetween={30}
