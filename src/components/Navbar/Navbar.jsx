@@ -7,17 +7,17 @@ const Navbar = () => {
     <>
       <li>
         <NavLink to="/"  className={({ isActive}) =>
-     isActive && "bg-[#a16740] text-black" 
+     isActive ? "bg-[#a16740] text-black" : undefined 
   }>Home</NavLink>
       </li>
       <li>
         <NavLink to="/myTeam" className={({ isActive}) =>
-     isActive && "bg-[#a16740] text-black" 
+     isActive ? "bg-[#a16740] text-black" : undefined 
   }>My Team</NavLink>
       </li>
       <li>
         <NavLink to="/dashboard" className={({ isActive}) =>
-     isActive && "bg-[#a16740] text-black" 
+     isActive ? "bg-[#a16740] text-black" : undefined 
   }>Dashboard</NavLink>
       </li>
     </>
@@ -28,7 +28,7 @@ const Navbar = () => {
    
 
 
-    <div className="absolute flex w-full justify-between p-4 z-[100]">
+    <div className="absolute flex w-full items-center justify-between p-4 z-[100]">
       
         <div className="lg:hidden">
           <input id="my-drawer" type="checkbox" className="drawer-toggle" />
