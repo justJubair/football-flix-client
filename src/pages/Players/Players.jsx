@@ -17,7 +17,7 @@ const Players = () => {
     return(
         <div>
             <GeneralNavbar/>
-             <p> HELLO I Am Players </p>
+            <h1>Our Featured Players</h1>
         </div>
     )}
 export default Players;
