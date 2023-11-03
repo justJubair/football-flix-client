@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -21,6 +22,10 @@ const Banner = () => {
         }
     })
 
+    if(isLoading){
+        return <div className='flex h-screen justify-between items-center'><span className="loading loading-bars loading-lg"></span></div>
+    }
+
     return(
         <div>
             <Swiper spaceBetween={30}
@@ -40,7 +45,7 @@ const Banner = () => {
                 sliders?.map((slider, idx)=> <SwiperSlide key={idx}><div className='relative w-full h-screen'>
                     {/* slider content */}
                 <div className='absolute z-30 left-10 top-1/4 w-8/12 lg:left-28 md:top-1/3 lg:w-1/3 space-y-4'>
-                    <h1 className='text-4xl font-extrabold leading-tight text-white md:text-5xl'>{slider.tagline.slice(0,25)}<span className='text-[#a16740]'>{slider.tagline.slice(25,)}</span></h1>
+                    <h1 className='text-4xl font-extrabold text-white md:text-5xl'>{slider.tagline.slice(0,25)}<span className='leading-normal text-[#a16740]'>{slider.tagline.slice(25,)}</span></h1>
                     <p>{slider.description}</p>
                     <button className='btn bg-[#a16740] text-black duration-500 border-none hover:bg-[#c09375] hover:scale-110'>Get your player</button>
                 </div>
