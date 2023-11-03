@@ -2,8 +2,40 @@ import Lottie from "lottie-react";
 import logo from "../../assets/images/logo.png"
 import loginAnimation from "../../assets/animations/login.json";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { updateProfile } from "firebase/auth";
+import auth from "../../config/firebase.config";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const {signUp} = useAuth()
+    const handleRegister = e=>{
+        e.preventDefault()
+        const toastId = toast.loading("Creating user..")
+        const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        signUp(email, password)
+        .then(result=>{
+          if(result.user){
+            toast.success("User created", {id: toastId})
+            updateProfile(auth.currentUser, {
+              displayName: name, photoURL: photo
+            })
+            .then()
+            .catch(error=>{
+              toast.error(error.message , {id: toastId})
+            })
+          }
+         
+        })
+        .catch(error=>{
+          toast.error(error.message, {id: toastId})
+        })
+        
+    }
     return(
         <div className="bg-base-200">
     
@@ -19,7 +51,7 @@ const Register = () => {
           </div>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
