@@ -27,6 +27,7 @@ const Login = () => {
                 type="email"
                 placeholder="email"
                 className="input input-bordered"
+                name="email"
                 required
               />
             </div>
@@ -38,6 +39,7 @@ const Login = () => {
                 type="password"
                 placeholder="password"
                 className="input input-bordered"
+                name="password"
                 required
               />
               <label className="label">
@@ -47,9 +49,13 @@ const Login = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-[#a16740] text-black hover:bg-[#d5956a]">Login</button>
+              <button type="submit" className="btn bg-[#a16740] text-black hover:bg-[#d5956a]">Login</button>
             </div>
           </form>
+          <div className="flex items-center justify-between p-4">
+            <p>New to Flix Football?</p>
+            <Link to="/register" className="btn btn-link">Register Now</Link>
+          </div>
         </div>
       </div>
      </div>
