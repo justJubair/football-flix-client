@@ -1,35 +1,47 @@
-import { useQuery } from "@tanstack/react-query";
+// import { useQuery } from "@tanstack/react-query";
 import GeneralNavbar from "../../components/Navbar/GeneralNav";
 import useAxios from "../../hooks/useAxios";
 import { TypeAnimation } from "react-type-animation";
 import PlayerCard from "./PlayerCard";
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Players = () => {
   const axios = useAxios();
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(0)
+  const [players, setPlayers] = useState([])
   const { count } = useLoaderData();
-  const limit = 3;
-  const numberOfPages = Math.ceil(count / limit);
+  const numberOfPlayers = 3;
+  const numberOfPages = Math.ceil(count / numberOfPlayers);
+  console.log(currentPage)
+  // const getPlayers = async () => {
+  //   const res = await axios.get(`/players?page=${currentPage}&limit=${numberOfPlayers}`);
+  //   return res.data;
+  // };
+  // const { data: players, refetch, isLoading } = useQuery({
+  //   queryKey: ["players"],
+  //   queryFn: getPlayers,
+  // });
+  // if(isLoading){
+  //   return <p>loading..</p>
+  // }
+  useEffect(()=>{
+      axios.get(`/players?page=${currentPage}&limit=${numberOfPlayers}`)
+      .then(data =>{
+        setPlayers(data.data)
+      })
+  },[axios, currentPage, numberOfPages])
 
-  const getPlayers = async () => {
-    const res = await axios.get("/players");
-    return res.data;
-  };
-  const { data: players } = useQuery({
-    queryKey: ["players"],
-    queryFn: getPlayers,
-  });
-console.log(currentPage)
  const handlePrev = ()=>{
-  if(currentPage >1){
+  if(currentPage >0){
     setCurrentPage(currentPage-1)
+    
   }
  }
  const handleNext =()=>{
-  if(currentPage<numberOfPages){
+  if(currentPage<numberOfPages-1){
     setCurrentPage(currentPage+1)
+   
   }
  }
   return (
@@ -75,7 +87,7 @@ console.log(currentPage)
           <div className="join">
             <button onClick={handlePrev} className="join-item btn">Prev</button>
             {
-              Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx+1)} key={idx} className={`${currentPage === (idx+1) ? "btn-active" : undefined} join-item btn`}>{idx+1}</button>)
+              Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx)} key={idx+1} className={`${currentPage === (idx) ? "btn-active" : undefined} join-item btn`}>{idx}</button>)
             }
             <button onClick={handleNext} className="join-item btn">Next</button>
           </div>
