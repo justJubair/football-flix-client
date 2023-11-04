@@ -6,8 +6,8 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Players from "../pages/Players/Players";
-
 const router = createBrowserRouter([
+   
     {
         path:"/",
         element: <Root/>,
@@ -22,6 +22,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/players",
+                loader: ()=> fetch("http://localhost:5000/api/v1/playersCount"),
                 element: <Players/>
             }
             
