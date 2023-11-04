@@ -4,9 +4,11 @@ import useAxios from "../../hooks/useAxios";
 import { TypeAnimation } from "react-type-animation";
 import PlayerCard from "./PlayerCard";
 import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
 
 const Players = () => {
   const axios = useAxios();
+  const [currentPage, setCurrentPage] = useState(1)
   const { count } = useLoaderData();
   const limit = 3;
   const numberOfPages = Math.ceil(count / limit);
@@ -19,7 +21,17 @@ const Players = () => {
     queryKey: ["players"],
     queryFn: getPlayers,
   });
-
+console.log(currentPage)
+ const handlePrev = ()=>{
+  if(currentPage >1){
+    setCurrentPage(currentPage-1)
+  }
+ }
+ const handleNext =()=>{
+  if(currentPage<numberOfPages){
+    setCurrentPage(currentPage+1)
+  }
+ }
   return (
     <>
       <div className="bg-[url('https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg')] bg-black/75 h-screen bg-blend-overlay">
@@ -61,7 +73,11 @@ const Players = () => {
         </div>
         <div className="text-center my-10">
           <div className="join">
-            {/* <button className="join-item btn">1</button> */}
+            <button onClick={handlePrev} className="join-item btn">Prev</button>
+            {
+              Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx+1)} key={idx} className={`${currentPage === (idx+1) ? "btn-active" : undefined} join-item btn`}>{idx+1}</button>)
+            }
+            <button onClick={handleNext} className="join-item btn">Next</button>
           </div>
         </div>
       </div>
