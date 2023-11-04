@@ -13,18 +13,6 @@ const Players = () => {
   const { count } = useLoaderData();
   const numberOfPlayers = 3;
   const numberOfPages = Math.ceil(count / numberOfPlayers);
-  console.log(currentPage)
-  // const getPlayers = async () => {
-  //   const res = await axios.get(`/players?page=${currentPage}&limit=${numberOfPlayers}`);
-  //   return res.data;
-  // };
-  // const { data: players, refetch, isLoading } = useQuery({
-  //   queryKey: ["players"],
-  //   queryFn: getPlayers,
-  // });
-  // if(isLoading){
-  //   return <p>loading..</p>
-  // }
   useEffect(()=>{
       axios.get(`/players?page=${currentPage}&limit=${numberOfPlayers}`)
       .then(data =>{
@@ -41,7 +29,6 @@ const Players = () => {
  const handleNext =()=>{
   if(currentPage<numberOfPages-1){
     setCurrentPage(currentPage+1)
-   
   }
  }
   return (
@@ -83,11 +70,11 @@ const Players = () => {
             <PlayerCard key={player._id} player={player} />
           ))}
         </div>
-        <div className="text-center my-10">
+        <div className="text-center">
           <div className="join">
             <button onClick={handlePrev} className="join-item btn">Prev</button>
             {
-              Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx)} key={idx+1} className={`${currentPage === (idx) ? "btn-active" : undefined} join-item btn`}>{idx}</button>)
+              Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx)} key={idx+1} className={`${currentPage === (idx) ? "btn-active" : undefined} join-item btn`}>{idx+1}</button>)
             }
             <button onClick={handleNext} className="join-item btn">Next</button>
           </div>
