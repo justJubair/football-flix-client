@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink
           to="/myTeam"
           className={({ isActive }) =>
-            isActive ? "bg-[#a16740] text-black" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
           }
         >
           My Team
@@ -29,7 +29,7 @@ const Navbar = () => {
         <NavLink
           to="/players"
           className={({ isActive }) =>
-            isActive ? "bg-[#a16740] text-black" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
           }
         >
           Players
@@ -39,7 +39,7 @@ const Navbar = () => {
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
-            isActive ? "bg-[#a16740] text-black" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
           }
         >
           Dashboard
