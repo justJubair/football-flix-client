@@ -9,7 +9,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "bg-[#a16740] text-black" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
           }
         >
           Home
@@ -90,14 +90,14 @@ const Navbar = () => {
 
       <img className="w-28" src={logo} alt="" />
       <div className="hidden lg:block">
-        <ul className="menu menu-horizontal px-1 space-x-4">{navLinks}</ul>
+        <ul className="menu menu-horizontal text-white px-1 space-x-4">{navLinks}</ul>
       </div>
       <div className="">
         <Link
           to="/login"
-          className="btn text-xl bg-[#a16740] text-black hover:bg-[#f9ccc2]"
+          className="btn border-none bg-gradient-to-r from-sky-500 to-indigo-500 text-white"
         >
-          <AiOutlineLogin />
+          <AiOutlineLogin size={22} />
         </Link>
       </div>
     </div>

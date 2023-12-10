@@ -1,10 +1,10 @@
 // import { useQuery } from "@tanstack/react-query";
-import GeneralNavbar from "../../components/Navbar/GeneralNav";
 import useAxios from "../../hooks/useAxios";
 import { TypeAnimation } from "react-type-animation";
 import PlayerCard from "./PlayerCard";
 import { useLoaderData } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 
 const Players = () => {
   const axios = useAxios();
@@ -33,12 +33,15 @@ const Players = () => {
  }
   return (
     <>
-      <div className="bg-[url('https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg')] bg-black/75 h-screen bg-blend-overlay">
+      <div className="bg-[url('https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg')] bg-black/75 min-h-screen bg-blend-overlay">
         {/* overlay */}
 
-        <GeneralNavbar />
-        {/* page title */}
-        <div className="text-center">
+       <Navbar/>
+        
+        {/* main container */}
+        <div className="pt-28">
+        <div className="text-center mb-10">
+          {/* page title */}
           <TypeAnimation
             sequence={[
               "Our Feature Players Messi",
@@ -56,7 +59,7 @@ const Players = () => {
               fontSize: "2rem",
               fontWeight: "bold",
               display: "inline-block",
-              backgroundImage: "linear-gradient(#f9ccc2, #a16740)",
+              backgroundImage: "linear-gradient(#10a3e9, #5e69f1)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               backgroundSize: "100%",
@@ -65,12 +68,12 @@ const Players = () => {
             repeat={Infinity}
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {players?.map((player) => (
             <PlayerCard key={player._id} player={player} />
           ))}
         </div>
-        <div className="text-center">
+        <div className="text-center mt-16 pb-10 ">
           <div className="join">
             <button onClick={handlePrev} className="join-item btn">Prev</button>
             {
@@ -78,6 +81,7 @@ const Players = () => {
             }
             <button onClick={handleNext} className="join-item btn">Next</button>
           </div>
+        </div>
         </div>
       </div>
     </>
