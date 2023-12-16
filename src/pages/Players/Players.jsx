@@ -73,13 +73,14 @@ const Players = () => {
             <PlayerCard key={player._id} player={player} />
           ))}
         </div>
-        <div className="text-center mt-16 pb-10 ">
-          <div className="join">
-            <button onClick={handlePrev} className="join-item btn">Prev</button>
+        {/* pagination */}
+        <div className="text-center mt-16 pb-10">
+          <div className="join ">
+            <button onClick={handlePrev} className="join-item btn  bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white">Prev</button>
             {
-              Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx)} key={idx+1} className={`${currentPage === (idx) ? "btn-active" : undefined} join-item btn`}>{idx+1}</button>)
+              Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx)} key={idx+1} className={`${currentPage === (idx) ? "bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white" : undefined} join-item btn`}>{idx+1}</button>)
             }
-            <button onClick={handleNext} className="join-item btn">Next</button>
+            <button onClick={handleNext} className="join-item btn bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white">Next</button>
           </div>
         </div>
         </div>
