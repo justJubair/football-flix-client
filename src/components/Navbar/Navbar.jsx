@@ -57,7 +57,7 @@ const Navbar = () => {
           <label
             htmlFor="my-drawer"
             tabIndex={0}
-            className="btn btn-ghost lg:hidden"
+            className="btn btn-ghost text-blue-400 lg:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +88,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <img className="w-28" src={logo} alt="" />
+      <img className="hidden md:block w-28" src={logo} alt="" />
       <div className="hidden lg:block">
         <ul className="menu menu-horizontal text-white px-1 space-x-4">{navLinks}</ul>
       </div>

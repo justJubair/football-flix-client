@@ -40,7 +40,7 @@ const Players = () => {
         
         {/* main container */}
         <div className="pt-28">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 w-80 h-32 mx-auto md:w-full md:h-full">
           {/* page title */}
           <TypeAnimation
             sequence={[
@@ -75,12 +75,12 @@ const Players = () => {
         </div>
         {/* pagination */}
         <div className="text-center mt-16 pb-10">
-          <div className="join ">
-            <button onClick={handlePrev} className="join-item btn  bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white">Prev</button>
+          <div className="space-x-1 md:join md:space-x-0">
+            <button onClick={handlePrev} className="hidden md:block join-item btn  bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white">Prev</button>
             {
               Array(numberOfPages).fill(0).map((_, idx)=> <button onClick={()=> setCurrentPage(idx)} key={idx+1} className={`${currentPage === (idx) ? "bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white" : undefined} join-item btn`}>{idx+1}</button>)
             }
-            <button onClick={handleNext} className="join-item btn bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white">Next</button>
+            <button onClick={handleNext} className="hidden md:block join-item btn bg-gradient-to-r from-sky-500 to-indigo-500 border-none text-white">Next</button>
           </div>
         </div>
         </div>
