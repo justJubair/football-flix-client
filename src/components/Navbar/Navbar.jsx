@@ -5,41 +5,41 @@ import { AiOutlineLogin } from "react-icons/ai";
 const Navbar = () => {
   const navLinks = (
     <>
-      <li>
+      <li className="duration-200 hover:border-b border-blue-400">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500  text-white px-3 py-2 rounded-md" : "px-3 py-2"
           }
         >
           Home
         </NavLink>
       </li>
-      <li>
+      <li className="duration-200 hover:border-b border-blue-400">
         <NavLink
           to="/myTeam"
           className={({ isActive }) =>
-            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500  text-white px-3 py-2 rounded-md" : "px-3 py-2"
           }
         >
           My Team
         </NavLink>
       </li>
-      <li>
+      <li className="duration-200 hover:border-b border-blue-400">
         <NavLink
           to="/players"
           className={({ isActive }) =>
-            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500  text-white px-3 py-2 rounded-md" : "px-3 py-2"
           }
         >
           Players
         </NavLink>
       </li>
-      <li>
+      <li className="duration-200 hover:border-b border-blue-400">
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
-            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500 text-white" : undefined
+            isActive ? "bg-gradient-to-r from-sky-500 to-indigo-500  text-white px-3 py-2 rounded-md" : "px-3 py-2"
           }
         >
           Dashboard
@@ -90,7 +90,7 @@ const Navbar = () => {
 
       <img className="hidden md:block w-28" src={logo} alt="" />
       <div className="hidden lg:block">
-        <ul className="menu menu-horizontal text-white px-1 space-x-4">{navLinks}</ul>
+        <ul className="flex text-white px-1 space-x-4">{navLinks}</ul>
       </div>
       <div className="">
         <Link
