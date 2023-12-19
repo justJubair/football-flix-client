@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo.svg";
 import { AiOutlineLogin } from "react-icons/ai";
 
 const Navbar = () => {
@@ -52,8 +52,7 @@ const Navbar = () => {
       <div className="lg:hidden">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
-          {/* Page content here */}
-          {/* <label htmlFor="my-drawer" className="btn btn-primary drawer-button">Open drawer</label> */}
+        
           <label
             htmlFor="my-drawer"
             tabIndex={0}
@@ -88,7 +87,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <img className="hidden md:block w-28" src={logo} alt="" />
+      <img className="hidden md:block w-32 bg-blue-100 px-2 py-2 rounded" src={logo} alt="" />
       <div className="hidden lg:block">
         <ul className="flex text-white px-1 space-x-4">{navLinks}</ul>
       </div>
