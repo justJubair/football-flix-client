@@ -16,14 +16,13 @@ const Players = () => {
   useEffect(()=>{
       axios.get(`/players?page=${currentPage}&limit=${numberOfPlayers}`)
       .then(data =>{
-        setPlayers(data.data)
+        setPlayers(data.data.docs)
       })
   },[axios, currentPage, numberOfPages])
 
  const handlePrev = ()=>{
   if(currentPage >0){
     setCurrentPage(currentPage-1)
-    
   }
  }
  const handleNext =()=>{
@@ -31,6 +30,7 @@ const Players = () => {
     setCurrentPage(currentPage+1)
   }
  }
+
   return (
     <>
       <div className="bg-[url('https://cdn.britannica.com/51/190751-050-147B93F7/soccer-ball-goal.jpg')] bg-black/75 min-h-screen bg-blend-overlay">
